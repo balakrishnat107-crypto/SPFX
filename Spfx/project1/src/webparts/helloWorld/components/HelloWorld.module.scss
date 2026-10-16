@@ -1,0 +1,79 @@
+.employeeApp {
+  --ink: #202b27;
+  --muted: #68746f;
+  --line: #e2e8e4;
+  --green: #087f5b;
+  --green-dark: #066448;
+  color: var(--ink);
+  font-family: "Segoe UI", sans-serif;
+  padding: 28px 32px;
+  background: #fff;
+  min-height: 420px;
+}
+
+.header, .toolbar, .dialogHeader, .formActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header { padding-bottom: 22px; border-bottom: 1px solid var(--line); }
+.header h2 { font-size: 25px; font-weight: 600; margin: 4px 0 0; }
+.eyebrow { color: var(--green); font-size: 10px; font-weight: 700; letter-spacing: 1.3px; margin: 0; }
+
+.primaryButton, .secondaryButton {
+  border: 1px solid transparent;
+  border-radius: 3px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 15px;
+}
+
+.primaryButton { background: var(--green); color: #fff; }
+.primaryButton:hover:not(:disabled) { background: var(--green-dark); }
+.primaryButton:disabled { cursor: wait; opacity: .65; }
+.secondaryButton { background: #fff; border-color: #cbd5cf; color: var(--ink); }
+.secondaryButton:hover { background: #f4f7f5; }
+
+.toolbar { gap: 16px; padding: 18px 0; }
+.search { align-items: center; border: 1px solid #cbd5cf; border-radius: 3px; display: flex; gap: 8px; max-width: 360px; padding: 0 10px; width: 100%; }
+.search span { color: #66716c; font-size: 21px; }
+.search input { border: 0; font: inherit; font-size: 13px; outline: 0; padding: 9px 0; width: 100%; }
+.resultCount { color: var(--muted); font-size: 12px; white-space: nowrap; }
+.error { background: #fff3f1; border-left: 3px solid #b42318; color: #8f1c13; font-size: 13px; margin-bottom: 14px; padding: 10px 12px; overflow-wrap: anywhere; }
+.tableWrap { overflow-x: auto; }
+.employeeTable { border-collapse: collapse; min-width: 740px; text-align: left; width: 100%; }
+.employeeTable th { background: #f5f8f6; color: #5c6963; font-size: 11px; font-weight: 600; padding: 11px 12px; }
+.employeeTable td { border-bottom: 1px solid #e9eeeb; color: #35413b; font-size: 13px; padding: 13px 12px; vertical-align: middle; }
+.employeeTable td strong { display: block; font-size: 13px; font-weight: 600; }
+.subText { color: #7b8680; display: block; font-size: 11px; margin-top: 3px; }
+.actions { white-space: nowrap; text-align: right; }
+.actions button { background: transparent; border: 0; color: var(--green); cursor: pointer; font: inherit; font-size: 12px; padding: 5px 7px; }
+.actions button:last-child { color: #a23830; }
+.emptyState { color: #78847e !important; padding: 38px 14px !important; text-align: center; }
+.visuallyHidden { clip: rect(0, 0, 0, 0); clip-path: inset(50%); height: 1px; overflow: hidden; position: absolute; white-space: nowrap; width: 1px; }
+
+.dialogBackdrop { align-items: center; background: rgba(18, 31, 25, .42); display: flex; inset: 0; justify-content: center; padding: 20px; position: fixed; z-index: 1000; }
+.dialog { background: #fff; border-top: 4px solid var(--green); box-shadow: 0 18px 55px rgba(13, 35, 24, .22); max-height: calc(100vh - 40px); max-width: 620px; overflow-y: auto; padding: 24px; width: 100%; }
+.dialogHeader { align-items: flex-start; margin-bottom: 22px; }
+.dialogHeader h3 { font-size: 20px; font-weight: 600; margin: 5px 0 0; }
+.closeButton { background: transparent; border: 0; color: #65716b; cursor: pointer; font-size: 25px; line-height: 1; padding: 0 3px; }
+.formGrid { display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+.formGrid label { display: flex; flex-direction: column; gap: 6px; }
+.formGrid label span { color: #4d5a53; font-size: 12px; font-weight: 600; }
+.formGrid label b { color: #b42318; }
+.formGrid input, .formGrid select { background: #fff; border: 1px solid #cbd5cf; border-radius: 2px; color: var(--ink); font: inherit; font-size: 13px; min-height: 38px; padding: 8px 9px; width: 100%; }
+.formGrid input:focus, .formGrid select:focus, .search:focus-within { border-color: var(--green); outline: 2px solid rgba(8, 127, 91, .15); }
+.fullField { grid-column: 1 / -1; }
+.formActions { border-top: 1px solid var(--line); gap: 10px; justify-content: flex-end; margin-top: 24px; padding-top: 18px; }
+
+@media (max-width: 600px) {
+  .employeeApp { padding: 20px 14px; }
+  .header { align-items: flex-start; gap: 12px; }
+  .header h2 { font-size: 21px; }
+  .primaryButton { padding: 9px 10px; }
+  .formGrid { grid-template-columns: 1fr; }
+  .fullField { grid-column: auto; }
+}
